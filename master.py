@@ -1,8 +1,8 @@
 # start of game
 
-gameMap = [["0", "0"],
-           ["0", "0"],
-           ["0", "0"],
+gameMap = [["david", "francis"],
+           ["doug", "peter"],
+           ["ralph", "harry"],
            ["darkRoom", "darkerRoom"]]
 
 playerPosition = gameMap[3][0]
@@ -31,6 +31,8 @@ def moveNorth():
             if x[i][j] == playerPosition:
                 print(x[i][j])
                 print(x[i-1][j])
+                x[i][j] = x[i-1][j]
+                print(playerPosition)
 
 
 darkRoom = Room("a Dark Room", "It is like many other rooms, but strangely without light.", "It is hard to see much in this dark room.")
@@ -38,5 +40,6 @@ darkerRoom = Room("an Even Darker Room", "Such dark. Much scary. Wow.", "If you 
 darkRoom.tellName()
 darkRoom.descSelf()
 darkRoom.charLook()
+print(playerPosition)
 moveNorth()
-
+print(playerPosition)

@@ -33,6 +33,10 @@ def moveNorth():
                 print(x[i-1][j])
                 x[i][j] = x[i-1][j]
                 print(playerPosition)
+                print(i, j)
+                i -= 1
+                print(i, j)
+                print(gameMap[i][j])
 
 
 darkRoom = Room("a Dark Room", "It is like many other rooms, but strangely without light.", "It is hard to see much in this dark room.")
@@ -40,6 +44,4 @@ darkerRoom = Room("an Even Darker Room", "Such dark. Much scary. Wow.", "If you 
 darkRoom.tellName()
 darkRoom.descSelf()
 darkRoom.charLook()
-print(playerPosition)
 moveNorth()
-print(playerPosition)

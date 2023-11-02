@@ -24,6 +24,10 @@ class Room:
     def charLook(self):
         print(self.look)
 
+def getPlayerPosition():
+    if playerPosition == True:
+        print("Player position value is {playerPosition}")
+
 def moveNorth():
     x = gameMap
     for i in range(len(x)):
@@ -45,3 +49,4 @@ darkRoom.tellName()
 darkRoom.descSelf()
 darkRoom.charLook()
 moveNorth()
+getPlayerPosition()

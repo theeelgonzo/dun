@@ -10,7 +10,7 @@ class Guy:
         self.isAlive = isAlive
 
 
-        if self.health >= 0:
+        if self.health <= 0:
             self.isAlive == False
 
     def printInventory(self):
@@ -45,10 +45,22 @@ class EasternPassage:
             roomToo.door = "unlocked"
         else:
             roomTwo.door = "locked"
+
+roomCuatro = RoomFour("locked")
+roomTres = RoomThree("guarded", "alive")
 eastPassage = EasternPassage("unsolved")
 roomToo = RoomTwo("locked")
 orc = Guy(10, ["key"], True)
 playerCharacter = PC(10, [], True)
+
+def searchOrc():
+    pass
+
+def attackOrc():
+    pass
+
+def talkToOrc():
+    pass
 
 def exitRoom():
     pass
@@ -62,23 +74,70 @@ def swordRoom():
 def roomThree():
     print("You find yourself in a well lit room.")
     print("There is a door to the South, a door to the West, a door to the East. Also, there is a door to the North guarded by an angry-looking orc.")
-    whatDo = input("What do you do?\n\n1. Go through the South Door\n2. Go through the West Door\n 3. Go through the North Door\n4. Go through the East Door\n4. Talk to the orc\n5. Attack the orc\n6. Get a hint\n")
-    match whatDo:
-        case "1":
-            pass
-        case "2":
-            pass
-        case "3":
-            pass
-        case "4":
-            pass
-        case "5":
-            pass
-        case "6":
-            pass
-        case _:
-            print(stoop)
-            roomThree()
+    if orc.isAlive == True:
+        whatDo = input("What do you do?\n\n1. Go through the South Door\n2. Go through the West Door\n 3. Go through the North Door\n4. Go through the East Door\n5. Talk to the orc\n6. Attack the orc\n7. Get a hint\n")
+        match whatDo:
+            case "1":
+                print("You go through the South Door")
+                roomTwo()
+            case "2":
+                print("You traverse the Door to the West")
+                swordRoom()
+            case "3":
+                if roomTres.door == "guarded":
+                    print("You may not pass through this door while the orc defends it.")
+                    roomThree()
+                else:
+                    print("You pass through the Northern Door.")
+                    exitRoom()
+            case "4":
+                print("You journey beyond the East Door.")
+                shieldRoom()
+            case "5":
+                print("You attempt to chat with the orc")
+                talkOrc()
+            case "6":
+                artThouCertain = input("Are you sure you wish to attack the orc?")
+                if artThouCertain.lower() == "yes":
+                    attackOrc()
+                else:
+                    print("What? Are you afraid to commit?")
+                    roomThree()
+            case "7":
+                print("What would you do if a big, angry, green orc was standing between you and freedom?")
+                roomThree()
+            case _:
+                print(stoop)
+                roomThree()
+
+    else:
+        whatDo = input("What do you do?\n\n1. Go through the South Door\n2. Go through the West Door\n 3. Go through the North Door\n4. Go through the East Door\n5. Search to the orc\n6. Get a hint\n")
+        match whatDo:
+            case "1":
+                print("You go through the South Door")
+                roomTwo()
+            case "2":
+                print("You traverse the Door to the West")
+                swordRoom()
+            case "3":
+                if roomTres.door == "guarded":
+                    print("You may not pass through this door while the orc defends it.")
+                    roomThree()
+                else:
+                    print("You pass through the Northern Door.")
+                    exitRoom()
+            case "4":
+                print("You journey beyond the East Door.")
+                shieldRoom()
+            case "5":
+                searchOrc()
+            case "6":
+                print("You know, if there's no one around, it's not so bad to go through a dead guy's pockets...")
+                roomThree()
+            case _:
+                print(stoop)
+                roomThree()
+
 
 def easternPassage():
     #eastPassage = EasternPassage("unsolved")
@@ -156,6 +215,9 @@ def roomOne():
 print("Welcome to the Dungeon.")
 #orc.printInventory()
 #playerCharacter.printInventory()
+playerCharacter.health = 0
+print(playerCharacter.health)
+print(playerCharacter.isAlive)
 start = input("Are you ready to enter? Type 'Yes' or 'No' \n")
 
 if start.lower() == "yes":

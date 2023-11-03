@@ -6,6 +6,7 @@ stoop = "Try something else. Or maybe try writing a digit on the list instead of
 class RoomTwo:
     def __init__(self, door):
         self.door = door
+
 class EasternPassage:
     def __init__(self, puzzle):
         self.puzzle = puzzle
@@ -31,6 +32,22 @@ def roomThree():
     print("You find yourself in a well lit room.")
     print("There is a door to the South, a door to the West, a door to the East. Also, there is a door to the North guarded by an angry-looking orc.")
     whatDo = input("What do you do?\n\n1. Go through the South Door\n2. Go through the West Door\n 3. Go through the North Door\n4. Go through the East Door\n4. Talk to the orc\n5. Attack the orc\n6. Get a hint\n")
+    match whatDo:
+        case "1":
+            pass
+        case "2":
+            pass
+        case "3":
+            pass
+        case "4":
+            pass
+        case "5":
+            pass
+        case "6":
+            pass
+        case _:
+            print(stoop)
+            roomThree()
 
 def easternPassage():
     #eastPassage = EasternPassage("unsolved")
@@ -57,6 +74,7 @@ def easternPassage():
             easternPassage()
         case _:
             print(stoop)
+            easternPassage()
 
 def roomTwo():
     #if eastPassage.puzzle == "solved":
@@ -83,6 +101,7 @@ def roomTwo():
             roomTwo()
         case _:
             print(stoop)
+            roomTwo()
 
 
 def roomOne():
@@ -101,6 +120,7 @@ def roomOne():
             roomOne()
         case _:
             print(stoop)
+            roomOne()
 
 print("Welcome to the Dungeon.")
 start = input("Are you ready to enter? Type 'Yes' or 'No' \n")

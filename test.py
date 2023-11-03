@@ -27,6 +27,10 @@ class RoomFour:
     def __init__(self, door):
         self.door = door
 
+class SwordRoom:
+    def __init__(self, sword):
+        self.sword = sword
+
 class RoomThree:
     def __init__(self, door, orc):
         self.door = door
@@ -46,6 +50,7 @@ class EasternPassage:
         else:
             roomTwo.door = "locked"
 
+roomWithASword = SwordRoom(True)
 roomCuatro = RoomFour("locked")
 roomTres = RoomThree("guarded", "alive")
 eastPassage = EasternPassage("unsolved")
@@ -69,7 +74,36 @@ def shieldRoom():
     pass
 
 def swordRoom():
-    pass
+    print("You enter a room with a vaulted ceiling. Stained glass windows let colored light in from the twilight without, and the waning beams shine upon a metal shape upon an immaculately hewn stone altar.")
+    whatDo = input("What do you do?\n\n1. Examine the Altar\n2. Examine the
+                   Windows\n3. Go through the East Door\n4. Get a Hint\n")
+    match whatDo:
+        case "1":
+            if roomWithASword.sword == True:
+                print("An altar of excellent craftsmanship. A glimmering steel blade lies across its surface.")
+                takeSword = input("Do you take the sword?")
+                    if takeSword.lower() == "yes":
+                        print("You take the sword in hand.")
+                        PC.inventory.append("sword")
+                        print(PC.inventory)
+                        roomWithASword.sword == False
+                    else:
+                        swordRoom()
+            else:
+                print("A bare stone altar. Sunbeams fall lightly across it.")
+        case "2":
+            print("Remarkably crafted mosaics that...")
+            print("Seriously? Have you never seen a stained glass window?")
+            print("Just use your imagination")
+            swordRoom()
+        case "3":
+            print("You return through the Eastern Door")
+            roomThree()
+        case "4":
+            print("If only there were a big, sharp sword lying around somewhere...")
+        case _:
+            print(stoop)
+            swordRoom
 
 def roomThree():
     print("You find yourself in a well lit room.")

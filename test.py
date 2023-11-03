@@ -6,11 +6,52 @@ stoop = "Try something else. Or maybe try writing a digit on the list instead of
 class RoomTwo:
     def __init__(self, door):
         self.door = door
+class EasternPassage:
+    def __init__(self, puzzle):
+        self.puzzle = puzzle
+    def unlockDoor(self):
+        if self.puzzle == "solved":
+            print("You hear in the distance the sound of a heavy lock releasing.")
+            roomTwo.door = "unlocked"
+        else:
+            roomTwo.door = "locked"
+eastPassage = EasternPassage("unsolved")
+roomToo = RoomTwo("locked")
 
+def roomThree():
+    print("Wow! You made it to Room Three!")
 
+def easternPassage():
+    #eastPassage = EasternPassage("unsolved")
+    print("You enter a room lit by an aromatic brazier. There is a passage to your west. In an alcove marked by faded frescoes on the northern wall, you see a worn sculpture of a sphynx.")
+    whatDo = input("What do you do?\n\n1. Go through the west passage\n2. Touch the sphynx\n3. Get a hint")
+    match whatDo:
+        case "1":
+            roomTwo()
+        case "2":
+            print("You reach out and brush your fingertips against the smooth stone of the sphynx. You hear a voice in your head...")
+            print("'What is two plus two?'")
+            riddleAnswer = input("How do you respond?\n")
+            if riddleAnswer == "4":
+                print("You hear a voice in your head say, 'Well done!'")
+                eastPassage.puzzle = "solved"
+                #eastPassage.unlockDoor()
+                roomToo.door = "unlocked"
+                easternPassage()
+            else:
+                print(f"Seriously? You thought {riddleAnswer} was the answer? Get real!")
+                easternPassage()
+        case "3":
+            print("Get a hint? More like Get A Life!")
+            easternPassage()
+        case _:
+            print(stoop)
 
 def roomTwo():
-    roomTwo = RoomTwo("locked")
+    #if eastPassage.puzzle == "solved":
+        #roomToo = RoomTwo("unlocked")
+    #else:
+        #roomToo = RoomTwo("locked")
     print("Wow! You made it to the next room!")
     #if roomTwo.door == "locked":
         #print("You see a door, but it appears to be locked.")
@@ -18,9 +59,10 @@ def roomTwo():
     whatDo = input("What do you do?\n\n1. Go through the North Door\n2. Go through the South Door\n3. Go through the Eastern Passage\n4.Get a hint")
     match whatDo:
         case "1":
-            if roomTwo.door == "locked":
+            if roomToo.door == "locked":
                 print("You try the door, but it is locked.\n")
                 roomTwo()
+            else: roomThree()
         case "2":
             roomOne()
         case "3":

@@ -3,6 +3,22 @@ import time
 
 stoop = "Try something else. Or maybe try writing a digit on the list instead of whatever that was."
 
+class Guy:
+    def __init__(self, health, inventory):
+        self.health = health
+        self.inventory = inventory
+    def printInventory:
+        print(self.inventory)
+
+class RoomFour:
+    def __init__(self, door):
+        self.door = door
+
+class RoomThree:
+    def __init__(self, door, orc):
+        self.door = door
+        self.orc = orc
+
 class RoomTwo:
     def __init__(self, door):
         self.door = door

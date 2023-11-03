@@ -1,7 +1,18 @@
 import sys
 
+class RoomTwo:
+    def __init__(self, door):
+        self.door = door
+
+
+
 def roomTwo():
+    roomTwo = RoomTwo("locked")
     print("Wow! You made it to the next room!")
+    if roomTwo.door == "locked":
+        print("You see a door, but it appears to be locked.")
+
+
 
 def roomOne():
     print("You find yourself in a dimly lit room. The pungent stench of mildew emanates from the wet dungeon walls around you. In front of you, you see a sturdy wooden door.")

@@ -12,14 +12,25 @@ class EasternPassage:
     def unlockDoor(self):
         if self.puzzle == "solved":
             print("You hear in the distance the sound of a heavy lock releasing.")
-            roomTwo.door = "unlocked"
+            roomToo.door = "unlocked"
         else:
             roomTwo.door = "locked"
 eastPassage = EasternPassage("unsolved")
 roomToo = RoomTwo("locked")
 
+def exitRoom():
+    pass
+
+def shieldRoom():
+    pass
+
+def swordRoom():
+    pass
+
 def roomThree():
-    print("Wow! You made it to Room Three!")
+    print("You find yourself in a well lit room.")
+    print("There is a door to the South, a door to the West, a door to the East. Also, there is a door to the North guarded by an angry-looking orc.")
+    whatDo = input("What do you do?\n\n1. Go through the South Door\n2. Go through the West Door\n 3. Go through the North Door\n4. Go through the East Door\n4. Talk to the orc\n5. Attack the orc\n6. Get a hint\n")
 
 def easternPassage():
     #eastPassage = EasternPassage("unsolved")
@@ -35,8 +46,8 @@ def easternPassage():
             if riddleAnswer == "4":
                 print("You hear a voice in your head say, 'Well done!'")
                 eastPassage.puzzle = "solved"
-                #eastPassage.unlockDoor()
-                roomToo.door = "unlocked"
+                eastPassage.unlockDoor()
+                #roomToo.door = "unlocked"
                 easternPassage()
             else:
                 print(f"Seriously? You thought {riddleAnswer} was the answer? Get real!")

@@ -25,7 +25,7 @@ class Room:
         print(self.look)
 
 def getPlayerPosition():
-    if playerPosition == True:
+    if playerPosition != None:
         print("Player position value is {playerPosition}")
 
 def moveNorth():

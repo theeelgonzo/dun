@@ -4,11 +4,24 @@ import time
 stoop = "Try something else. Or maybe try writing a digit on the list instead of whatever that was."
 
 class Guy:
-    def __init__(self, health, inventory):
+    def __init__(self, health, inventory, isAlive):
         self.health = health
         self.inventory = inventory
-    def printInventory:
+        self.isAlive = isAlive
+
+
+        if self.health >= 0:
+            self.isAlive == False
+
+    def printInventory(self):
         print(self.inventory)
+
+class PC(Guy):
+    def __init__(self, health, inventory, isAlive):
+        super().__init__(health, inventory, isAlive)
+        if self.isAlive == False:
+            print("You Died!")
+            sys.exit()
 
 class RoomFour:
     def __init__(self, door):
@@ -34,6 +47,8 @@ class EasternPassage:
             roomTwo.door = "locked"
 eastPassage = EasternPassage("unsolved")
 roomToo = RoomTwo("locked")
+orc = Guy(10, ["key"], True)
+playerCharacter = PC(10, [], True)
 
 def exitRoom():
     pass
@@ -139,6 +154,8 @@ def roomOne():
             roomOne()
 
 print("Welcome to the Dungeon.")
+#orc.printInventory()
+#playerCharacter.printInventory()
 start = input("Are you ready to enter? Type 'Yes' or 'No' \n")
 
 if start.lower() == "yes":

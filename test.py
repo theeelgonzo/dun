@@ -73,10 +73,26 @@ def talkToOrc():
     print("You approach the orc.")
     print("'What do you want?' he says.")
     whatDo = input("""1. What is your name?
-                2. May I pass through this door?
-                3. What are you doing here, anyways?
-                4. Never mind.
-                   """)
+    2. May I pass through this door?
+    3. What are you doing here, anyways?
+    4. Never mind.\n""")
+
+    match whatDo:
+        case "1":
+            print("'Douglas.'")
+            talkToOrc()
+        case "2":
+            print("'You sure can't.'")
+            talkToOrc()
+        case "3":
+            print("'I am guarding the door. And being nefarious.'")
+            talkToOrc()
+        case "4":
+            print("'I didn't feel like talking anyways.")
+            roomThree()
+        case _:
+            print(stoop)
+            roomThree()
 
 
 def exitRoom():
@@ -292,7 +308,7 @@ print("Welcome to the Dungeon.")
 playerCharacter.health = 0
 print(playerCharacter.health)
 print(playerCharacter.isAlive)
-talkToOrc()
+#talkToOrc()
 start = input("Are you ready to enter? Type 'Yes' or 'No' \n")
 
 if start.lower() == "yes":

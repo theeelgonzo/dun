@@ -64,10 +64,34 @@ orc = Guy(10, ["key"], True)
 playerCharacter = PC(10, [], True)
 
 def searchOrc():
-    pass
+    print("""The orc has a key in his pocket.""")
+    whatDo = input("""Do you take the key?
+1. Yes
+2. No\n""")
+    match whatDo:
+        case "1":
+            print("You take the key from the dead orc.")
+            playerCharacter.inventory.append("key")
+            roomThree()
+        case "2":
+            print("You leave the orc alone.")
+            roomThree()
+        case _:
+            print(stoop)
+            roomThree()
 
 def attackOrc():
-    pass
+    if "sword" and "shield" in playerCharacter.inventory:
+        print("""The orc defends himself valiantly, but you best him with the
+aid of your righteous weapons!""")
+        orc.isAlive = False
+        roomTres.door = "unguarded"
+        roomTres.orc = "dead"
+
+    else:
+        print("""You struggle heroically against the orc, but he slays you with
+              the fury of his martial prowess!""")
+        playerCharacter.isAlive = False
 
 def talkToOrc():
     print("You approach the orc.")

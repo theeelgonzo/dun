@@ -147,12 +147,15 @@ def shieldRoom():
         match whatDo:
             case "1":
                 print("An empty rack striped with dust.")
+                shieldRoom()
             case "2":
                 roomThree()
             case "3":
                 print("You have what you came for. It's time to move on.")
+                shieldRoom()
             case _:
                 print(stoop)
+                shieldRoom()
 
 def swordRoom():
     print("You enter a room with a vaulted ceiling. Stained glass windows let colored light in from the twilight without, and the waning beams shine upon a metal shape upon an immaculately hewn stone altar.")
@@ -184,7 +187,7 @@ def swordRoom():
             print("If only there were a big, sharp sword lying around somewhere...")
         case _:
             print(stoop)
-            swordRoom
+            swordRoom()
 
 def roomThree():
     print("You find yourself in a well lit room.")

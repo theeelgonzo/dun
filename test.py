@@ -164,9 +164,10 @@ def swordRoom():
                 takeSword = input("Do you take the sword?")
                 if takeSword.lower() == "yes":
                     print("You take the sword in hand.")
-                    PC.inventory.append("sword")
-                    print(PC.inventory)
+                    playerCharacter.inventory.append("sword")
+                    #print(PC.inventory)
                     roomWithASword.sword == False
+                    swordRoom()
                 else:
                     swordRoom()
             else:

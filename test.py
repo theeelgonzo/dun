@@ -169,7 +169,7 @@ def swordRoom():
                     print("You take the sword in hand.")
                     playerCharacter.inventory.append("sword")
                     #print(PC.inventory)
-                    roomWithASword.sword == False
+                    roomWithASword.sword = False
                     swordRoom()
                 else:
                     swordRoom()

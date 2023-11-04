@@ -27,6 +27,10 @@ class RoomFour:
     def __init__(self, door):
         self.door = door
 
+class ShieldRoom:
+    def __init__(self, shield):
+        self.shield = shield
+
 class SwordRoom:
     def __init__(self, sword):
         self.sword = sword
@@ -50,6 +54,7 @@ class EasternPassage:
         else:
             roomTwo.door = "locked"
 
+roomWithAShield = ShieldRoom(True)
 roomWithASword = SwordRoom(True)
 roomCuatro = RoomFour("locked")
 roomTres = RoomThree("guarded", "alive")
@@ -65,30 +70,65 @@ def attackOrc():
     pass
 
 def talkToOrc():
-    pass
+    print("You approach the orc.")
+    print("'What do you want?' he says.")
+    whatDo = input("""1. What is your name?
+                2. May I pass through this door?
+                3. What are you doing here, anyways?
+                4. Never mind.
+                   """)
+
 
 def exitRoom():
     pass
 
 def shieldRoom():
-    pass
+    print("You first see the magnificent tapestries spanning the wall of this domed vault. Then your eyes alight on a sturdy wooden rack bearing a mighty iron shield, marked in the heraldry of an ancient house.")
+    whatDo = input("What do you do?\n\n1. Examine the rack\n2. Go through the West Door\n3. Get a Hint")
+    if roomWithAShield.shield == True:
+        match whatDo:
+            case "1":
+               takeShield = input("The heavy shield beckons your hand. Do you take it?\n")
+               if takeShield.lower() == "yes":
+                   print("You remove the shield and wield it.")
+                   roomWithAShield.shield = False
+                   playerCharacter.inventory.append("shield")
+                   shieldRoom()
+            case "2":
+                print("You return through the West Door.")
+                roomThree()
+            case "3":
+                print("A big iron shield can soak up a lot of damage. You should take it.")
+                shieldRoom()
+            case _:
+                print(stoop)
+                shieldRoom()
+    else:
+        match whatDo:
+            case "1":
+                print("An empty rack striped with dust.")
+            case "2":
+                roomThree()
+            case "3":
+                print("You have what you came for. It's time to move on.")
+            case _:
+                print(stoop)
 
 def swordRoom():
     print("You enter a room with a vaulted ceiling. Stained glass windows let colored light in from the twilight without, and the waning beams shine upon a metal shape upon an immaculately hewn stone altar.")
-    whatDo = input("What do you do?\n\n1. Examine the Altar\n2. Examine the
-                   Windows\n3. Go through the East Door\n4. Get a Hint\n")
+    whatDo = input("What do you do?\n\n1. Examine the Altar\n2. Examine the Windows\n3. Go through the East Door\n4. Get a Hint\n")
     match whatDo:
         case "1":
             if roomWithASword.sword == True:
                 print("An altar of excellent craftsmanship. A glimmering steel blade lies across its surface.")
                 takeSword = input("Do you take the sword?")
-                    if takeSword.lower() == "yes":
-                        print("You take the sword in hand.")
-                        PC.inventory.append("sword")
-                        print(PC.inventory)
-                        roomWithASword.sword == False
-                    else:
-                        swordRoom()
+                if takeSword.lower() == "yes":
+                    print("You take the sword in hand.")
+                    PC.inventory.append("sword")
+                    print(PC.inventory)
+                    roomWithASword.sword == False
+                else:
+                    swordRoom()
             else:
                 print("A bare stone altar. Sunbeams fall lightly across it.")
         case "2":
@@ -129,7 +169,7 @@ def roomThree():
                 shieldRoom()
             case "5":
                 print("You attempt to chat with the orc")
-                talkOrc()
+                talkToOrc()
             case "6":
                 artThouCertain = input("Are you sure you wish to attack the orc?")
                 if artThouCertain.lower() == "yes":
@@ -252,6 +292,7 @@ print("Welcome to the Dungeon.")
 playerCharacter.health = 0
 print(playerCharacter.health)
 print(playerCharacter.isAlive)
+talkToOrc()
 start = input("Are you ready to enter? Type 'Yes' or 'No' \n")
 
 if start.lower() == "yes":
@@ -260,3 +301,4 @@ if start.lower() == "yes":
 else:
     print("Don't mess around, nerd.")
     sys.exit()
+

@@ -175,6 +175,7 @@ def swordRoom():
                     swordRoom()
             else:
                 print("A bare stone altar. Sunbeams fall lightly across it.")
+                swordRoom()
         case "2":
             print("Remarkably crafted mosaics that...")
             print("Seriously? Have you never seen a stained glass window?")
@@ -185,6 +186,7 @@ def swordRoom():
             roomThree()
         case "4":
             print("If only there were a big, sharp sword lying around somewhere...")
+            swordRoom()
         case _:
             print(stoop)
             swordRoom()

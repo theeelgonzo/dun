@@ -87,6 +87,7 @@ aid of your righteous weapons!""")
         orc.isAlive = False
         roomTres.door = "unguarded"
         roomTres.orc = "dead"
+        roomThree()
 
     else:
         print("""You struggle heroically against the orc, but he slays you with
@@ -120,7 +121,26 @@ def talkToOrc():
 
 
 def exitRoom():
-    pass
+    print("You enter the final room of the dungeon. The only thing standing between you and freedom is a magnificent door with a sturdy lock.")
+    whatDo = input("What do you do?\n\n1. Open the Great Door\n2. Return through the South Door\n3. Get a hint")
+    match whatDo:
+        case "1":
+            if "key" in playerCharacter.inventory:
+                print("You pass through the Final Great Door.")
+                print("Congratulations! You've beaten the game!")
+                print("Thanks for playing!")
+                sys.exit()
+            else:
+                print("The door is locked. You will need the key.")
+                exitRoom()
+        case "2":
+            roomThree()
+        case "3":
+            print("At this point, you need psychiatric intervention more than you need another hint.")
+            exitRoom()
+        case _:
+            print(stoop)
+            exitRoom()
 
 def shieldRoom():
     print("You first see the magnificent tapestries spanning the wall of this domed vault. Then your eyes alight on a sturdy wooden rack bearing a mighty iron shield, marked in the heraldry of an ancient house.")

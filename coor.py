@@ -1,5 +1,6 @@
 import math #get sine and cosine functions for coordinate update
 playerCoordinates = []
+maxRange = 10
 
 def setPlayerCoordinates(x,y):
     if playerCoordinates == []:
@@ -13,9 +14,17 @@ def getPlayerCoordinates():
     if playerCoordinates == []:
         print("There are no player coordinates yet.")
     else:
-        print(playerCoordinates)
+        return playerCoordinates
+
+def moveRobot(maxRange):
+    print(maxRange)
+
+def updatePlayerCoordinates():
+    print(getPlayerCoordinates())
+    
+
 
 getPlayerCoordinates()
 setPlayerCoordinates(1,2)
-getPlayerCoordinates()
-
+updatePlayerCoordinates()
+moveRobot(maxRange)

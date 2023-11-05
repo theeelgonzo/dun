@@ -22,3 +22,13 @@ class Weapon:
 
     def fireWeapon(self):
         print(f"You fired the {self.name} for {self.damage} points of damage.")
+
+class Combatant(Robot):
+    def __init__(self, name, armor, hull, heat, maxHeat, maxRange, maxScan, power, laser):
+        super().__init__(name, armor, hull, heat, maxHeat, maxRange, maxScan, power)
+        self.laser = laser
+
+combatant = Combatant("combatant", 100, 100, 0, 100, 100, 100, 100, Weapon("laser", "laser", 0, 10, 100, 10, 1, 1))
+print(combatant.laser.typeWeapon)
+
+    

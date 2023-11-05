@@ -28,7 +28,13 @@ class Combatant(Robot):
         super().__init__(name, armor, hull, heat, maxHeat, maxRange, maxScan, power)
         self.laser = laser
 
-combatant = Combatant("combatant", 100, 100, 0, 100, 100, 100, 100, Weapon("laser", "laser", 0, 10, 100, 10, 1, 1))
-print(combatant.laser.typeWeapon)
+    def fireLasers(self):
+        self.laser.fireWeapon()
+        self.heat += self.laser.heatGen
+        print(f"You generated {self.heat} point of heat.")
+        print(f"You have {self.maxHeat - self.heat} points before overheat.")
 
-    
+
+
+combatant = Combatant("combatant", 100, 100, 0, 100, 100, 100, 100, Weapon("laser", "laser", 0, 10, 100, 10, 1, 1))
+combatant.fireLasers()    

@@ -17,14 +17,23 @@ def getPlayerCoordinates():
         return playerCoordinates
 
 def moveRobot(maxRange):
-    print(maxRange)
+    radius = maxRange
+    bearing = input("What is your bearing?")
+    newX, newY = math.cos(int(bearing)) * maxRange, math.sin(int(bearing)) * maxRange
+    updatePlayerCoordinates(newCoordinates = [round(newX), round(newY)])
+    
+    
+    
 
-def updatePlayerCoordinates():
-    print(getPlayerCoordinates())
+def updatePlayerCoordinates(newCoordinates):
+    print(newCoordinates)
+    playerCoordinates[0] += newCoordinates[0]
+    playerCoordinates[1] += newCoordinates[1]
+    print(playerCoordinates)
     
 
 
 getPlayerCoordinates()
 setPlayerCoordinates(1,2)
-updatePlayerCoordinates()
 moveRobot(maxRange)
+print(playerCoordinates)

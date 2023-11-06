@@ -31,9 +31,19 @@ def updatePlayerCoordinates(newCoordinates):
     playerCoordinates[1] += newCoordinates[1]
     print(playerCoordinates)
     
+def calculateRange(pointA, pointB):
+    distance = []
+    distance.append(pointB[0] - pointA[0])
+    distance.append(pointB[1] - pointA[1])
+    print(distance)
+    cSquared = distance[0] ** 2 + distance[1] ** 2
+    print(cSquared)
+    print(int(math.sqrt(cSquared)))
+
 
 
 getPlayerCoordinates()
 setPlayerCoordinates(1,2)
 moveRobot(maxRange)
 print(playerCoordinates)
+calculateRange([1,2], [4,6])

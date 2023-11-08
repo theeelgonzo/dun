@@ -20,7 +20,7 @@ def moveRobot(maxRange):
     radius = maxRange
     bearing = input("What is your bearing?")
     if int(bearing) < 90:
-        newX, newY = math.cos(int(bearing)) * maxRange, math.sin(int(bearing)) * maxRange
+        newX, newY = math.cos(math.radians(int(bearing))) * maxRange, math.sin(math.radians(int(bearing))) * maxRange
     elif int(bearing) == 90:
         newX, newY = 0, maxRange
     else:

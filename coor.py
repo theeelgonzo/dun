@@ -19,7 +19,13 @@ def getPlayerCoordinates():
 def moveRobot(maxRange):
     radius = maxRange
     bearing = input("What is your bearing?")
-    newX, newY = math.cos(int(bearing)) * maxRange, math.sin(int(bearing)) * maxRange
+    if int(bearing) < 90:
+        newX, newY = math.cos(int(bearing)) * maxRange, math.sin(int(bearing)) * maxRange
+    elif int(bearing) == 90:
+        newX, newY = 0, maxRange
+    else:
+        pass
+
     updatePlayerCoordinates(newCoordinates = [round(newX), round(newY)])
     
     
@@ -42,8 +48,9 @@ def calculateRange(pointA, pointB):
 
 
 
-getPlayerCoordinates()
+#getPlayerCoordinates()
 setPlayerCoordinates(1,2)
-moveRobot(maxRange)
 print(playerCoordinates)
-calculateRange([1,2], [4,6])
+moveRobot(maxRange)
+#print(playerCoordinates)
+#calculateRange([1,2], [4,6])

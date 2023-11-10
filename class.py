@@ -65,7 +65,7 @@ class MobileUnit(Machine):
 
         updatePlayerCoordinates(newCoordinates = [round(newX), round(newY)])
 
-    def updatePlayerCoordinates(newCoordinates):
+    def updatePlayerCoordinates(self, newCoordinates):
         print(newCoordinates)
         self.coordinates[0] += newCoordinates[0]
         self.coordinates[1] += newCoordinates[1]

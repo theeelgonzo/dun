@@ -10,11 +10,11 @@ def setPlayerCoordinates(x,y):
         x = playerCoordinates[0]
         y = playerCoordinates[1]
 
-def getPlayerCoordinates():
-    if playerCoordinates == []:
+def getPlayerCoordinates(robo):
+    if robo.coordinates == []:
         print("There are no player coordinates yet.")
     else:
-        return playerCoordinates
+        return robo.coordinates
 
 def moveRobot(maxRange):
     radius = maxRange
@@ -44,20 +44,33 @@ def updatePlayerCoordinates(newCoordinates):
     playerCoordinates[1] += newCoordinates[1]
     print(playerCoordinates)
     
-def calculateRange(pointA, pointB):
-    distance = []
-    distance.append(pointB[0] - pointA[0])
-    distance.append(pointB[1] - pointA[1])
-    print(distance)
-    cSquared = distance[0] ** 2 + distance[1] ** 2
-    print(cSquared)
-    print(int(math.sqrt(cSquared)))
+#def calculateRange(pointA, pointB):
+#    distance = []
+#    distance.append(pointB[0] - pointA[0])
+#    distance.append(pointB[1] - pointA[1])
+#    print(distance)
+#    cSquared = distance[0] ** 2 + distance[1] ** 2
+#    print(cSquared)
+#    print(int(math.sqrt(cSquared)))
+
+def calculateRange(att, defe):
+    offPC = getPlayerCoordinates(att)
+    defPC = getPlayerCoordinates(defe)
+    dist = []
+    #defPC = defe
+    #offPC = att
+    dist.append(defPC[0] - offPC[0])
+    dist.append(defPC[1] - offPC[1])
+    print(dist)
 
 
 
 #getPlayerCoordinates()
-setPlayerCoordinates(1,2)
-print(playerCoordinates)
-moveRobot(maxRange)
+#setPlayerCoordinates(1,2)
+#print(playerCoordinates)
+#moveRobot(maxRange)
 #print(playerCoordinates)
 #calculateRange([1,2], [4,6])
+#att = [1,2]
+#defe = [13, 25]
+#calculateRange(att, defe)

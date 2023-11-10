@@ -1,3 +1,6 @@
+import math
+import coor.py
+
 # define base classes
 
 class Machine:

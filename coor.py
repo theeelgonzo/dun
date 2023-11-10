@@ -1,4 +1,6 @@
 import math #get sine and cosine functions for coordinate update
+import class.py as ro
+
 playerCoordinates = []
 maxRange = 10
 

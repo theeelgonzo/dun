@@ -55,7 +55,7 @@ class MobileUnit(Machine):
         self.weaponOne = weaponOne
         self.weaponTwo = weaponTwo
 
-    def moveRobot(self, self.maxRange):
+    def moveRobot(self, maxRange):
         radius = self.maxRange
         bearing = input("What is your bearing?")
         if int(bearing) %  90 != 0:
@@ -70,9 +70,9 @@ class MobileUnit(Machine):
             newX, newY = 0, self.maxRange * (-1)
 
         else:
-            pass
+            updatePlayerCoordinates(newCoordinates = [round(newX), round(newY)])
 
-        updatePlayerCoordinates(newCoordinates = [round(newX), round(newY)])
+
 
     def updatePlayerCoordinates(self, newCoordinates):
         print(newCoordinates)

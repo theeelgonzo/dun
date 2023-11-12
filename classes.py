@@ -1,5 +1,5 @@
 import math
-import coor.py
+import coor as coor
 
 #define game class and attributes
 

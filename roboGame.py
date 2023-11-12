@@ -20,11 +20,16 @@ def playGame():
     print(turretOne.coordinates)
     turretTwo.setPlayerCoordinates(random.randrange(0, gameMap[0]),(random.randrange(0,gameMap[1])))
     print(turretTwo.coordinates)
+
+    for instance in ro.Machine.instances:
+        print(instance.name)
+
+    sys.exit()
     
 
 def startGame():
     game = ro.Game(True)
-    while game == True:
+    while game.game == True:
         playGame()
     else:
         sys.exit()

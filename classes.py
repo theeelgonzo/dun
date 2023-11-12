@@ -1,5 +1,6 @@
 import math
 import coor as coor
+import weakref
 
 #define game class and attributes
 
@@ -10,7 +11,9 @@ class Game:
 # define base classes
 
 class Machine:
+    instances = []
     def __init__(self, name, armor, hull, heat, maxHeat, coordinates):
+        self.__class__.instances.append(weakref.proxy(self))
         self.name = name
         self.armor = armor
         self.hull = hull

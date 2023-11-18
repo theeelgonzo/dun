@@ -12,7 +12,7 @@ class Game:
 
 class Machine:
     instances = []
-    def __init__(self, name, armor, hull, heat, maxHeat, coordinates):
+    def __init__(self, name, armor, hull, heat, maxHeat, coordinates, passScanRange, actScanRange):
         self.__class__.instances.append(weakref.proxy(self))
         self.name = name
         self.armor = armor
@@ -20,6 +20,8 @@ class Machine:
         self.heat = heat
         self.maxHeat = maxHeat
         self.coordinates = coordinates
+        self.passScanRange = passScanRange
+        self.actScanRange = actScanRange
 
     def setPlayerCoordinates(self, x,y):
         if self.coordinates == []:
@@ -28,6 +30,13 @@ class Machine:
         else:
             x = self.coordinates[0]
             y = self.coordinates[1]
+    
+    def passiveScan(self):
+        for instance in Machine.instances:
+            print(instance.coordinates)
+
+    def activeScan(self):
+        pass
 
 
 
@@ -47,13 +56,13 @@ class Weapon:
 #Machine super classes
 
 class StatGun(Machine):
-    def __init__(self, name, armor, hull, heat, maxHeat, coordinates, weapon):
-        super().__init__(name, armor, hull, heat, maxHeat, coordinates)
+    def __init__(self, name, armor, hull, heat, maxHeat, coordinates, passScanRange, actScanRange, weapon):
+        super().__init__(name, armor, hull, heat, maxHeat, coordinates, passScanRange, actScanRange)
         self.weapon = weapon
 
 class MobileUnit(Machine):
-    def __init__(self, name, armor, hull, heat, maxHeat, coordinates, maxRange, weaponOne, weaponTwo):
-        super().__init__(name, armor, hull, heat, maxHeat, coordinates)
+    def __init__(self, name, armor, hull, heat, maxHeat, coordinates, passScanRange, actScanRange, maxRange, weaponOne, weaponTwo):
+        super().__init__(name, armor, hull, heat, maxHeat, coordinates, passScanRange, actScanRange)
         self.maxRange = maxRange
         self.weaponOne = weaponOne
         self.weaponTwo = weaponTwo

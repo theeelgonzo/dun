@@ -32,6 +32,8 @@ class Machine:
             y = self.coordinates[1]
     
     def passiveScan(self):
+        minX, maxX = self.coordinates[0] - self.passScanRange, self.coordinates[0] + self.passScanRange
+        minY, maxY = self.coordinates[1] - self.passScanRange, self.coordinates[1] + self.passScanRange
         for instance in Machine.instances:
             print(instance.coordinates)
 

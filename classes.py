@@ -35,7 +35,9 @@ class Machine:
         minX, maxX = self.coordinates[0] - self.passScanRange, self.coordinates[0] + self.passScanRange
         minY, maxY = self.coordinates[1] - self.passScanRange, self.coordinates[1] + self.passScanRange
         for instance in Machine.instances:
-            if instance.coordinates[0] > minX and instance.coordinates[0] < maxX:
+            if instance.coordinates == []:
+                print("Nothing on radar.")
+            elif instance.coordinates[0] > minX and instance.coordinates[0] < maxX:
                 if instance.coordinates[1] > minY and instance.coordinates[1] < maxY:
                     if instance.coordinates != self.coordinates:
                         print("Radar picks up heat signatures in the area.")

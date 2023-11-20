@@ -1,3 +1,4 @@
+import math
 # define active scanning
 
 def activeScan(scanRange, startCoordinates):
@@ -19,4 +20,25 @@ def activeScan(scanRange, startCoordinates):
         case _:
             "Try something else"
 
+    print("What is your bearing?\n")
+    bearing = input()
 
+
+    if int(bearing) %  90 != 0:
+        newX, newY = math.cos(math.radians(int(bearing))) * scanRange, math.sin(math.radians(int(bearing))) * scanRange
+    elif int(bearing) == 0 or int(bearing) == 360:
+        newX, newY = scanRange, 0
+    elif int(bearing) == 90:
+        newX, newY = 0, scanRange
+    elif int(bearing) == 180:
+        newX, newY = scanRange * (-1), 0
+    elif int(bearing) == 270:
+        newX, newY = 0, scanRange * (-1)
+
+    else:
+        pass
+        
+    scanPoint = [xOne + round(newX), yOne + round(newY)]
+    print(scanPoint)
+
+activeScan(10, [30,35])

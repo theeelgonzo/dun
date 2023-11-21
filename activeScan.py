@@ -4,6 +4,7 @@ import math
 def activeScan(scanRange, startCoordinates):
     xOne, yOne = startCoordinates[0], startCoordinates[1]
 
+
     levelOne = 12
     levelTwo = 23
     levelThree = 45
@@ -13,12 +14,17 @@ def activeScan(scanRange, startCoordinates):
     match level:
         case "1":
             theta = int(levelOne)
+            bc = 84
         case "2":
             theta = int(levelTwo)
+            bc = 78
         case "3":
             theta = int(levelThree)
+            bc = 67
         case _:
             "Try something else"
+
+    c = scanRange / bc
 
     print("What is your bearing?\n")
     bearing = input()
@@ -40,5 +46,7 @@ def activeScan(scanRange, startCoordinates):
         
     scanPoint = [xOne + round(newX), yOne + round(newY)]
     print(scanPoint)
+
+     
 
 activeScan(10, [30,35])

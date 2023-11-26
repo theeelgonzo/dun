@@ -27,29 +27,32 @@ def activeScan(scanRange, startCoordinates):
         case _:
             "Try something else"
 
-    c = scanRange / bc
+    c = scanRange / math.sin(math.degrees(int(bc)))
+    
 
     print("What is your bearing?\n")
     bearing = input()
 
+    def calcEndPoint(bearing, length):
+        if int(bearing) %  90 != 0:
+            newX, newY = math.cos(math.radians(int(bearing))) * length, math.sin(math.radians(int(bearing))) * length
+        elif int(bearing) == 0 or int(bearing) == 360:
+            newX, newY = length, 0
+        elif int(bearing) == 90:
+            newX, newY = 0, length
+        elif int(bearing) == 180:
+            newX, newY = length * (-1), 0
+        elif int(bearing) == 270:
+            newX, newY = 0, length * (-1)
 
-    if int(bearing) %  90 != 0:
-        newX, newY = math.cos(math.radians(int(bearing))) * scanRange, math.sin(math.radians(int(bearing))) * scanRange
-    elif int(bearing) == 0 or int(bearing) == 360:
-        newX, newY = scanRange, 0
-    elif int(bearing) == 90:
-        newX, newY = 0, scanRange
-    elif int(bearing) == 180:
-        newX, newY = scanRange * (-1), 0
-    elif int(bearing) == 270:
-        newX, newY = 0, scanRange * (-1)
-
-    else:
-        pass
+        else:
+            pass
         
-    scanPoint = [xOne + round(newX), yOne + round(newY)]
-    print(scanPoint)
+        scanPoint = [xOne + round(newX), yOne + round(newY)]
+        print(scanPoint)
 
-     
+    calcEndPoint(bearing, scanRange)
+    calcEndPoint(thetaOne, c)
+    calcEndPoint(thetaTwo, c)
 
 activeScan(10, [30,35])

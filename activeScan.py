@@ -13,13 +13,16 @@ def activeScan(scanRange, startCoordinates):
     level = input("1?\n2?\n3?\n")
     match level:
         case "1":
-            theta = int(levelOne)
+            thetaOne = round(int(levelOne) / 2)
+            thetaTwo = 360 - (round(int(levelOne) / 2))
             bc = 84
         case "2":
-            theta = int(levelTwo)
+            thetaOne = round(int(levelTwo) / 2)
+            thetaTwo = 360 - (round(int(levelTwo) / 2))
             bc = 78
         case "3":
-            theta = int(levelThree)
+            thetaOne = round(int(levelThree) / 2)
+            thetaTwo = 360 - (round(int(levelThree) / 2))
             bc = 67
         case _:
             "Try something else"

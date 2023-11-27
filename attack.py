@@ -35,3 +35,14 @@ def powerAttack(attacker, defender):
         print(f"{attacker.name} attacks {defender.name} for {damage} points of damage!")
     else:
         print(f"{attacker.name} attacks {defender.name} but misses!")
+
+jordan = Meatbag("jordan", 100, 5, 5, Weapon("sword", 5))
+orcus = Meatbag("orc", 10, 5, 5, Weapon("axe", 2))
+attack(jordan, orcus)
+print(jordan.hp)
+print(orcus.hp)
+attack(orcus, jordan)
+print(jordan.hp)
+print(orcus.hp)
+
+

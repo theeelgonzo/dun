@@ -30,3 +30,65 @@ class Door:
 newRoom = Room("Entry Chamber", [Door("A Door to the North", "north"), Door("A door to the south", "south")], None, None, None)
 
 newRoom.introduceSelf()
+
+# dungeon map switch set
+
+def goTo(destination):
+    match destination:
+        case a1:
+            roomA1()
+        case a2:
+            roomA2()
+        case a3:
+            roomA3()
+        case a4:
+            roomA4()
+        case a5:
+            roomA5()
+        case a6:
+            roomA6()
+        case a7:
+            roomA7()
+        case a8:
+            roomA8()
+        case a9:
+            roomA9()
+        case a10:
+            roomA10()
+        case a11:
+            roomA11()
+        case a12:
+            roomA12()
+        case a13:
+            roomA13()
+        case a14:
+            roomA14()
+        case a15:
+            roomA15()
+        case a16:
+            roomA16()
+        case a17:
+            roomA17()
+        case a18:
+            roomA18()
+        case a19:
+            roomA19()
+        case a20:
+            roomA20()
+        case a21:
+            roomA21()
+        case a22:
+            roomA22()
+        case a23:
+            roomA23()
+        case a24:
+            roomA24()
+        case a25:
+            roomA25()
+        case a26:
+            roomA26()
+        case a27:
+            roomA27()
+        case _:
+            print("negatory ghost rider")
+

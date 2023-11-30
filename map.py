@@ -27,6 +27,10 @@ class Door:
         self.name = name
         self.destination = destination
         self.isLocked = isLocked
+    
+    def openDoor(self):
+        goTo(self.destination)
+        
 
 def roomA1():
     print(dunRooms)
